@@ -21,4 +21,11 @@ public class GlobalExceptionHandler {
         );
         return ResponseEntity.status(status).body(errorCompleto);
     }
-}
+    @ExceptionHandler(ClienteNaoEncontradoException.class)
+    public ResponseEntity<ApiError> tratarClienteNaoEncontrado(ClienteNaoEncontradoException ex, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.NOT_FOUND;
+        ApiError erro = new ApiError(Instant.now(), status.value(), status.getReasonPhrase(),
+                ex.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(status).body(erro);
+    }
+    }
