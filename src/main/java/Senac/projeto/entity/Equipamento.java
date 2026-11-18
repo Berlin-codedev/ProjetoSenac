@@ -23,7 +23,7 @@ public class Equipamento {
     @Builder.Default
     @OneToMany(mappedBy = "equipamento", fetch = FetchType.LAZY)
     private List<Alocacao> alocacaos = new ArrayList<>();
-    @Builder.Default
+    /*@Builder.Default
     @ManyToMany(mappedBy = "equipamentos", fetch = FetchType.LAZY)
-    private List<Trabalho> trabalhos = new ArrayList<>();
+    private List<Trabalho> trabalhos = new ArrayList<>();*/
 }
